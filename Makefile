@@ -11,7 +11,7 @@ all: $(BIN)
 CFLAGS = -Wall -Werror -std=gnu99 -I.
 
 interpreter: interpreter.c
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -DCONCURRENCY -o $@ $^ -lpthread
 
 compiler-x86: compiler-x86.c
 	$(CC) $(CFLAGS) -o $@ $^
