@@ -65,6 +65,12 @@ void task(void *param)
 				}
 			}
 			break;
+		case '*':
+			printf("\n<SyntaxError>Brainf*ck doesn't support recursive thread creation.\n");
+			exit(0);
+		default:
+			printf("\n<SyntaxError>Brainf*ck doesn't support \'%c\' operation.\n", current_char);
+			exit(0);
 		}
 	}
 	pthread_exit(0);
@@ -142,6 +148,9 @@ void interpret(const char *const input)
 			pthread_join(*threadid, NULL);
 			break;
 #endif
+		default:
+			printf("\n<SyntaxError>Brainf*ck doesn't support \'%c\' operation\n.", current_char);
+			exit(0);
 		}
 	}
 }
